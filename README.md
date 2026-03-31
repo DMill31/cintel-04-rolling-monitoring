@@ -112,6 +112,7 @@ git add -A
 uvx pre-commit run --all-files
 
 uv run python -m cintel.rolling_monitor_case
+uv run python -m cintel.rolling_monitor_miller
 
 uv run ruff format .
 uv run ruff check . --fix
@@ -123,6 +124,21 @@ git push -u origin main
 ```
 
 </details>
+
+## Technical Modification
+
+The modification on this project is a simple one.
+
+The new python file created can be found at src/cintel/rolling_monitor_miller.py
+
+The original file calculates the rolling mean for requests, errors, and latency.
+
+The modification adds one more rolling statistic: standard deviation.
+Rolling standard deviation for latency is calculated because having more than just the mean is helpful when analyzing data.
+
+The output table, found at artifacts/rolling_metrics_miller.csv show this new rolling standard deviation and there is great variance among them.
+
+The smallest Std Dev. is ~305 while the largets is ~750.
 
 ## Notes
 
