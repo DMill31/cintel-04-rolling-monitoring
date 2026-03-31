@@ -138,7 +138,7 @@ Rolling standard deviation for latency is calculated because having more than ju
 
 The output table, found at artifacts/rolling_metrics_miller.csv show this new rolling standard deviation and there is great variance among them.
 
-The smallest Std Dev. is ~305 while the largets is ~750.
+The smallest Std Dev. is ~305 while the largest is ~750.
 
 ## Notes
 
