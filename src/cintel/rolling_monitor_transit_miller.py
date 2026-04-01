@@ -43,6 +43,7 @@ import logging
 from pathlib import Path
 from typing import Final
 
+import matplotlib.pyplot as plt
 import polars as pl
 from datafun_toolkit.logger import get_logger, log_header, log_path
 
@@ -168,6 +169,39 @@ def main() -> None:
     LOG.info("========================")
     LOG.info("Pipeline executed successfully!")
     LOG.info("========================")
+
+    # ----------------------------------------------------
+    # STEP 5: PLOT COEFFICIENT OF VARIATION OVER TIME
+    # ----------------------------------------------------
+    fig, ax1 = plt.subplots(figsize=(10, 5))
+
+    # Primary axis (rolling mean)
+    ax1.plot(
+        df_with_rolling["day"],
+        df_with_rolling["rides_rolling_mean"],
+        label="Rolling Mean",
+        color="blue",
+    )
+    ax1.set_xlabel("Day")
+    ax1.set_ylabel("Rolling Mean of Rides", color="blue")
+    ax1.tick_params(axis="y", labelcolor="blue")
+
+    # Secondary axis (coefficient of variation)
+    ax2 = ax1.twinx()
+    ax2.plot(
+        df_with_rolling["day"],
+        df_with_rolling["rides_rolling_coeff_var"],
+        label="Rolling Coeff of Var",
+        color="red",
+    )
+    ax2.set_ylabel("Rolling Coefficient of Variation", color="red")
+    ax2.tick_params(axis="y", labelcolor="red")
+
+    plt.title("Rolling Mean vs Coefficient of Variation")
+    plt.tight_layout()
+    plt.savefig(ARTIFACTS_DIR / "rolling_plot_transit_miller.png")
+    plt.show()
+
     LOG.info("END main()")
 
 
