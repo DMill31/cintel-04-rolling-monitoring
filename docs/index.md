@@ -55,7 +55,7 @@ The coefficient of variation follows a very similar pattern to the standard devi
 
 A plot was also created to show both the rolling mean and the rolling coefficient of variation as time goes on.
 
-![Plot](artifacts/rolling_plot_transit_miller.png)
+![Plot](images/rolling_plot_transit_miller.png)
 
 The plot also shows the steady increase in mean and how days 10-19 show an increase in the stats.
 
