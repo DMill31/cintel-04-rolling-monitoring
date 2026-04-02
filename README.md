@@ -140,6 +140,17 @@ The output table, found at artifacts/rolling_metrics_miller.csv show this new ro
 
 The smallest Std Dev. is ~305 while the largest is ~750.
 
+## Custom Project
+
+The custom project for this repo deals with transit data.
+The dataset contains the columns 'days' and 'rides'.
+
+The project itself focuses on calculating rolling statistics based off of the number of rides over time.
+
+Certain rolling statistics like mean and standard deviation are calculated and put into the data table.
+
+For a full description, look [Here](https://dmill31.github.io/cintel-04-rolling-monitoring/#custom-project).
+
 ## Notes
 
 - Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
